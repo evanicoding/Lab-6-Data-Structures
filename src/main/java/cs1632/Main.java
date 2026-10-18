@@ -6,9 +6,14 @@ public class Main {
         Player player1 = new Player();
         Player player2 = new Player();
         while (!deck.isEmpty()) {
-            PlayingCard c = deck.nextCard();
+            PlayingCard a = deck.nextCard();
+            player1.giveCard(a);
 
-            System.out.println("Card is " + c.cardName());
+            PlayingCard b = deck.nextCard();
+            player2.giveCard(b);
         }
+
+        System.out.println("Player 1 deck size: " + player1.deckSize());
+        System.out.println("Player 2 deck size: " + player2.deckSize());
     }
 }

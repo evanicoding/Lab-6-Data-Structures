@@ -18,4 +18,12 @@ public class Player {
     public PlayingCard playCard(){
         return playerCards.poll();
     }
+
+    public int deckSize(){
+        return playerCards.size();
+    }
+
+    public boolean isEmpty(){
+        return playerCards.isEmpty();
+    }
 }
