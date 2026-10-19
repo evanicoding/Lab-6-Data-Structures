@@ -9,4 +9,12 @@ public class PlayingCard {
     public PlayingCard(int cv, int sv) { cardValue = cv; suitValue = sv; }
     public String cardName() { return CardValues[cardValue] + " " + SuitValues[suitValue]; }
     public int playingCardValue() { return cardValue; }
+
+    @Override
+    public String toString() {
+        return "PlayingCard{" +
+                "cardValue=" + cardValue +
+                ", suitValue=" + suitValue +
+                '}';
+    }
 }

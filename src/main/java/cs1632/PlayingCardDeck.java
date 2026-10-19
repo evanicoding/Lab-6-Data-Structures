@@ -33,4 +33,15 @@ public class PlayingCardDeck {
     public Boolean isEmpty() {
         return cardDeck.isEmpty();
     }
+
+    public LinkedList<PlayingCard> getCardDeck() {
+        return cardDeck;
+    }
+
+    @Override
+    public String toString() {
+        return "PlayingCardDeck{" +
+                "cardDeck=" + cardDeck +
+                '}';
+    }
 }
