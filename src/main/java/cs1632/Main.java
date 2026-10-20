@@ -38,7 +38,10 @@ public class Main {
             System.out.println("Round: " + rounds);
 
             PlayingCard card1 = player1.playCard();
+            System.out.println("Player 1 plays " + card1.playingCardValue());
             PlayingCard card2 = player2.playCard();
+            System.out.println("Player 2 plays " + card2.playingCardValue());
+
             rounds++;
             playedCards.add(card1);
             playedCards.add(card2);
@@ -59,32 +62,39 @@ public class Main {
 
                 // if both run out of cards
                 if (player1.isEmpty()&&player2.isEmpty()){
-                    System.out.println("The game ends in a tie after " + rounds + " rounds. Both ran out of cards during a war");
+                    winner = "Tie";
+                    gameOver = true;
                     break;
                 }
 
                 // if player 1 runs out of cards
                 else if (player1.isEmpty()){
                     winner = "Player 2";
-                    System.out.println(winner + " wins the war after " + rounds + " rounds");
+                    gameOver = true;
                     break;
                 }
 
                 // if player 2 runs out of cards
                 else if (player2.isEmpty()){
                     winner = "Player 1";
-                    System.out.println(winner+ " wins the war after " + rounds + " rounds");
+                    gameOver = true;
                     break;
                 }
 
                 System.out.println("Round: " + rounds);
                 card1 = player1.playCard();
+                System.out.println("Player 1 plays " + card1.playingCardValue());
                 card2 = player2.playCard();
+                System.out.println("Player 2 plays " + card2.playingCardValue());
+
+
                 rounds++;
                 playedCards.add(card1);
                 playedCards.add(card2);
 
             }
+
+            if (gameOver){break;}
 
             // Higher card wins and is added to winners deck
             boolean p1Wins = card1.playingCardValue()>card2.playingCardValue();
@@ -96,10 +106,17 @@ public class Main {
             playedCards.clear();
         }
 
+
+
         // one player ran out of cards
-        if (winner == null && !(player1.isEmpty() && player2.isEmpty()) ){
-            winner = player1.isEmpty() ? "Player 2":"Player 1";
+        if (winner == "Player 1"){
             System.out.println(winner + " wins after " + rounds + " rounds");
+        }
+        else if (winner == "Player 2"){
+            System.out.println(winner + " wins after " + rounds + " rounds");
+        }
+        else if (winner == "Tie"){
+            System.out.println("Game ends in a tie after " + rounds + " rounds");
 
         }
 
